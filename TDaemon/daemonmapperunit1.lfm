@@ -1,0 +1,20 @@
+object DaemonMapper1: TDaemonMapper1
+  DaemonDefs = <  
+    item
+      DaemonClassName = 'TDaemon1'
+      Name = 'TestDaemon'
+      Description = 'My first test daemon'
+      DisplayName = 'Test Daemon'
+      Options = [doAllowStop, doAllowPause]
+      WinBindings.Dependencies = <>
+      WinBindings.StartType = stBoot
+      WinBindings.WaitHint = 0
+      WinBindings.IDTag = 0
+      WinBindings.ServiceType = stWin32
+      WinBindings.ErrorSeverity = esIgnore
+      WinBindings.AcceptedCodes = []
+      LogStatusReport = False
+    end>
+  Left = 362
+  Top = 31
+end
