@@ -4,10 +4,12 @@ object Daemon1: TDaemon1
   OnStop = DataModuleStop
   OnPause = DataModulePause
   OnContinue = DataModuleContinue
+  OnShutDown = DataModuleShutDown
   AfterInstall = DataModuleAfterInstall
   BeforeUnInstall = DataModuleBeforeUnInstall
-  Height = 150
-  HorizontalOffset = 362
-  VerticalOffset = 31
-  Width = 150
+  Height = 188
+  HorizontalOffset = 453
+  VerticalOffset = 39
+  Width = 188
+  PPI = 120
 end

@@ -3,7 +3,7 @@ object DaemonMapper1: TDaemonMapper1
     item
       DaemonClassName = 'TDaemon1'
       Name = 'TestDaemon'
-      Description = 'My first test daemon'
+      Description = 'Lazarus Daemons and Services Wiki Demo Service (Created using Lazarus GUI visual components)'
       DisplayName = 'Test Daemon'
       Options = [doAllowStop, doAllowPause]
       WinBindings.Dependencies = <>

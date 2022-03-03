@@ -13,7 +13,7 @@ uses
 // ---------------------------------------------------------------------
 
 const
-  DAEMON_CONFIG_FILE_PATH = '/lib/systemd/system';   // Unix systemd config file path
+  DAEMON_CONFIG_FILE_PATH = '/lib/systemd/system';   // Linux systemd config file path
 
 function GetSystemdControlFilePath(aDaemonName: string): string;
 function CreateSystemdControlFile(aDaemon: TDaemon; aFilePath: string): boolean;
@@ -36,17 +36,14 @@ begin
   Result := False;
   try
     f := TIniFile.Create(aFilePath, []);
-    // We use the definition given in the mapper class
-    // The mapper class is assigned to the "Definition" property
+    // The mapper class used to create the daemon is accessible through the "Definition" property of the daemon object
+    // We use it to populate a very basic .service file. Consult the systemd documentation for more options
     f.WriteString('Unit', 'Description', aDaemon.Definition.Description);
     f.WriteString('Unit', 'After', 'network.target');
     f.WriteString('Service', 'Type', 'simple');
     f.WriteString('Service', 'ExecStart', Application.ExeName + ' -r');
     f.WriteString('Install', 'WantedBy', 'multi-user.target');
     Result := True;
-    // Removed Taken from old file sample, IMHO not required
-    // f.WriteString('Service', 'TimeoutSec', '25');
-    // f.WriteString('Service', 'RemainAfterExit', 'yes');
   finally
     f.Free;
   end;

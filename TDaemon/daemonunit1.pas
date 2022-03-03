@@ -17,6 +17,7 @@ type
     procedure DataModuleBeforeUnInstall(Sender: TCustomDaemon);
     procedure DataModuleContinue(Sender: TCustomDaemon; var OK: Boolean);
     procedure DataModulePause(Sender: TCustomDaemon; var OK: Boolean);
+    procedure DataModuleShutDown(Sender: TCustomDaemon);
     procedure DataModuleStart(Sender: TCustomDaemon; var OK: Boolean);
     procedure DataModuleStop(Sender: TCustomDaemon; var OK: Boolean);
   private
@@ -85,7 +86,7 @@ procedure TDaemon1.DataModuleBeforeUnInstall(Sender: TCustomDaemon);
 procedure TDaemon1.DataModuleContinue(Sender: TCustomDaemon; var OK: Boolean);
 
 begin
-  LogToFile('Daemon recedived continue signal');
+  LogToFile('Daemon received continue signal');
   FDaemonWorkerThread.Resume;    // deprecated, yet still working
   OK := True;
 end;
@@ -93,9 +94,15 @@ end;
 
 procedure TDaemon1.DataModulePause(Sender: TCustomDaemon; var OK: Boolean);
 begin
-  LogToFile('Daemon recedived pause signal');
+  LogToFile('Daemon received pause signal');
   FDaemonWorkerThread.Suspend;    // deprecated, yet still working
   OK := True;;
+end;
+
+procedure TDaemon1.DataModuleShutDown(Sender: TCustomDaemon);
+begin
+  self.Stop;   // On shutdown, we trigger the stop handler. This will do nicely for this demo
+  LogToFile('Daemon received shutdown signal');
 end;
 
 // ---------------------
