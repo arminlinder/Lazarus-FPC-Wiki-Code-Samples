@@ -16,7 +16,7 @@ const
   DAEMON_CONFIG_FILE_PATH = '/lib/systemd/system';   // Linux systemd config file path
 
 function GetSystemdControlFilePath(aDaemonName: string): string;
-function CreateSystemdControlFile(aDaemon: TDaemon; aFilePath: string): boolean;
+function CreateSystemdControlFile(aDaemon: TCustomDaemon; aFilePath: string): boolean;
 function RemoveSystemdControlFile(aFilePath: string): boolean;
 
 implementation
@@ -27,7 +27,7 @@ begin
   Result := IncludetrailingBackslash(DAEMON_CONFIG_FILE_PATH) + aDaemonName + '.service';
 end;
 
-function CreateSystemdControlFile(aDaemon: TDaemon; aFilePath: string): boolean;
+function CreateSystemdControlFile(aDaemon: TCustomDaemon; aFilePath: string): boolean;
 
 var
   f: TIniFile;
