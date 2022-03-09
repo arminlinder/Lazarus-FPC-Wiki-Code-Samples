@@ -5,7 +5,8 @@ unit DaemonUnit1;
 interface
 
 uses
-  Classes, SysUtils, DaemonApp, DaemonWorkerThread, DaemonSystemdInstallerUnit,
+  Classes, SysUtils, DaemonApp, DaemonWorkerThread,
+  {$IFDEF UNIX}DaemonSystemdInstallerUnit,{$ENDIF} // Unit not required on Windows
   LazFileUtils;
 
 type
@@ -63,7 +64,7 @@ end;
 procedure TDaemon1.DataModuleBeforeUnInstall(Sender: TCustomDaemon);
   var
     isUnInstalled: boolean = True;
-    FilePath: string;
+    {$IFDEF UNIX}FilePath: string;{$ENDIF}
 
   begin
     LogToFile('Daemon uninstalling');
@@ -111,7 +112,7 @@ end;
 
 procedure TDaemon1.DataModuleStart(Sender: TCustomDaemon; var OK: Boolean);
 begin
-  LogToFile(Format('Daemon received start signal, PID:%d', [GetProcessID]));
+  LogToFile(Format('Daemon %s received start signal, PID:%d', [GetProcessID]));
   // Create a suspended worker thread - see DaemonWorkerThread unit
   FDaemonWorkerThread := TDaemonWorkerThread.Create;
   // Parametrize it

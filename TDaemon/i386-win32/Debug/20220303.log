@@ -1,0 +1,16 @@
+20:12:16 Log created
+20:12:16 TDaemon1: service TestDaemon installed: ok
+20:14:14 TDaemon1: service TestDaemon uninstalled: ok
+20:16:55 TDaemon1: service TestDaemonCodeOnly installed: ok
+20:18:37 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:20:25 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:20:27 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:20:27 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:20:28 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:20:30 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:24:22 TDaemon1: service TestDaemonCodeOnly installed: ok
+20:24:58 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:25:48 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:25:58 TDaemon1: service TestDaemonCodeOnly installed: ok
+20:30:53 TDaemon1: service TestDaemonCodeOnly uninstalled: ok
+20:31:31 TDaemon1: service TestDaemonCodeOnly uninstalled: ok

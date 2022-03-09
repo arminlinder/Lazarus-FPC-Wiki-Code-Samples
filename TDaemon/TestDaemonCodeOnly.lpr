@@ -49,7 +49,7 @@ type
 
   { TDaemon1 }
 
-  TDaemon1 = class(TCustomDaemon)
+  TDaemon1 = class(TDaemon)
   private
     FDaemonWorkerThread: TDaemonWorkerThread;
   public
@@ -175,5 +175,6 @@ type
 begin
   RegisterDaemonClass(TDaemon1);
   RegisterDaemonMapper(TDaemonMapper1);
+  Application.Initialize;
   Application.Run;
 end.

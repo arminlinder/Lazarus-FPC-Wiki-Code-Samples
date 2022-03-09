@@ -1,0 +1,17 @@
+08:43:51 Log created
+08:43:51 TDaemon1: service TestDaemonCodeOnly installed: ok
+08:44:05 Daemon worker thread created
+08:44:05 TDaemon1: service TestDaemonCodeOnly started, PID=17044
+08:44:05 Daemon worker thread executing
+08:44:05 Daemon worker thread running
+08:44:11 Daemon worker thread running
+08:44:16 Daemon worker thread running
+08:44:22 Daemon worker thread running
+08:44:27 Daemon worker thread running
+08:44:33 Daemon worker thread running
+08:44:38 Daemon worker thread running
+08:44:44 Daemon worker thread running
+08:44:45 Daemon worker thread terminated
+08:44:45 Daemon worker thread destroyed
+08:44:45 TDaemon1: service TestDaemonCodeOnly stopped
+08:44:52 TDaemon1: service TestDaemonCodeOnly uninstalled: ok

@@ -25,7 +25,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-extra\src"/>
+            <OtherUnitFiles Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-extra\src\"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -81,7 +81,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-extra\src"/>
+      <OtherUnitFiles Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-extra\src\"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
