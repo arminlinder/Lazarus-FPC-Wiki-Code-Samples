@@ -1,5 +1,10 @@
 program TestDaemonCodeOnly;
 
+// ---------------------------------------------------------------------------------------------
+// TestDaemonCodeOnly: main program, daemon and mapper init in code, no visual components used
+// V1.1 3/2022 arminlinder@arminlinder.de
+// ---------------------------------------------------------------------------------------------
+
 {$mode objfpc}{$H+}
 
 uses
@@ -11,8 +16,8 @@ uses
   { you can add units after this }
   DaemonApp,
   FileLoggerUnit,             // Thread safe file logger
-  DaemonWorkerThread,         // a TThread descendant to do the daemon's work
-  DaemonSystemdInstallerUnit; // -install and -uninstall support for Linux/systemd
+  DaemonWorkerThread,         // A TThread descendant to do the daemon's work
+  DaemonSystemdInstallerUnit; // Support for -install and -uninstall for Linux/systemd/systemctl
 
 // ------------------------------------------------------------------
 // TDaemonMapper: This class type defines the settings for the daemon
@@ -40,16 +45,16 @@ type
     end;
   end;
 
-// -------------------------------------------------------------------
-// TDaemon: This class type definies the daemon task and handles the
-//          events triggered by the Windows/Linux Service Manager
-// -------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// TCustomDaemon: This class type definies the daemon task and handles the
+//                events triggered by the Windows/Linux Service Manager
+// -----------------------------------------------------------------------
 
 type
 
   { TDaemon1 }
 
-  TDaemon1 = class(TDaemon)
+  TDaemon1 = class(TCustomDaemon)
   private
     FDaemonWorkerThread: TDaemonWorkerThread;
   public

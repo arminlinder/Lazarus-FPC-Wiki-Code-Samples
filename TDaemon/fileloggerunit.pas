@@ -1,16 +1,16 @@
 unit FileLoggerUnit;
 
-{$mode ObjFPC}{$H+}
-
 // -------------------------------------------------------------------------------------------
-// Thread-safe write log message to file
+// Common file: thread-safe write log message to file
+// V1.1 3/2022 arminlinder@arminlinder.de
 //
 // Note: TDaemonApplication has some logging capabilities (property Logger:TEventLog)
 //       built-in, but that is not thread-safe. For the daemon sample, we make our own logger.
 //       For more feature-rich thread-safe logging, look into the LazLogger unit.
 // -------------------------------------------------------------------------------------------
 
-{$WARN 5058 off : Variable "$1" does not seem to be initialized}
+{$mode ObjFPC}{$H+}
+
 interface
 
 uses

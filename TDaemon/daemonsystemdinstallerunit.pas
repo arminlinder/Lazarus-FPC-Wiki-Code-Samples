@@ -1,16 +1,17 @@
 unit DaemonSystemdInstallerUnit;
 
+// ---------------------------------------------------------------------------------------------
+// Common file: helper functions for Linux service install/uninstall support (systemd/systemctl)
+// Not required for Windows, where similar functionality is built-in in the DaemonApp unit
+// V1.1 3/2022 arminlinder@arminlinder.de
+// ---------------------------------------------------------------------------------------------
+
 {$mode ObjFPC}{$H+}
 
 interface
 
 uses
   Classes, SysUtils, DaemonApp, IniFiles;
-
-// ---------------------------------------------------------------------
-// Helper functions for Unix service install/uninstall support (systemd)
-// 2/2022 by arminlinder@arminlinder.de
-// ---------------------------------------------------------------------
 
 const
   DAEMON_CONFIG_FILE_PATH = '/lib/systemd/system';   // Linux systemd config file path

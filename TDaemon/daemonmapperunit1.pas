@@ -1,5 +1,10 @@
 unit DaemonMapperUnit1;
 
+// ---------------------------------------------
+// Testdaemon: daemon definition/parametrization
+// V1.1 3/2022 arminlinder@arminlinder.de
+// ---------------------------------------------
+
 {$mode objfpc}{$H+}
 
 interface

@@ -1,5 +1,10 @@
 unit DaemonWorkerThread;
 
+// --------------------------------------
+// Common file: the "worker" thread
+// V1.1 3/2022 arminlinder@arminlinder.de
+// --------------------------------------
+
 {$mode ObjFPC}{$H+}
 
 interface

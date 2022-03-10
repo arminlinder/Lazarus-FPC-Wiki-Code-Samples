@@ -1,5 +1,10 @@
 unit DaemonUnit1;
 
+// --------------------------------------
+// Testdaemon: main unit: event handlers
+// V1.1 3/2022 arminlinder@arminlinder.de
+// --------------------------------------
+
 {$mode objfpc}{$H+}
 
 interface
@@ -47,15 +52,15 @@ procedure TDaemon1.DataModuleAfterInstall(Sender: TCustomDaemon);
 
   var
   isInstalled: boolean = True;
-  FilePath: string;
+  {$IFDEF UNIX}FilePath:String;{$ENDIF}
 
 begin
-  LogToFile('Daemon installing');
   {$IFDEF UNIX}
   FilePath := GetSystemdControlFilePath(Self.Definition.Name);
+  LogToFile('Daemon installing systemd control file: ' + FilePath);
   isInstalled := CreateSystemdControlFile(self, FilePath);
   if not isInstalled then
-    LogToFile('Error creating systemd control file: ' + FilePath);
+    LogToFile('Error creating systemd control file');
   {$ENDIF}
   if isInstalled then
     LogToFile('Daemon installed');
@@ -67,12 +72,12 @@ procedure TDaemon1.DataModuleBeforeUnInstall(Sender: TCustomDaemon);
     {$IFDEF UNIX}FilePath: string;{$ENDIF}
 
   begin
-    LogToFile('Daemon uninstalling');
     {$IFDEF UNIX}
     FilePath := GetSystemdControlFilePath(Self.Definition.Name);
+    LogToFile('Daemon uninstalling systemd control file: ' + FilePath);
     isUnInstalled := RemoveSystemdControlFile(FilePath);
     if not isUninstalled then
-      LogToFile('Error removing systemd control file: ' + FilePath);
+      LogToFile('Error removing systemd control file');
     {$ENDIF}
     if isUninstalled then
       LogToFile('Daemon uninstalled');
@@ -112,7 +117,7 @@ end;
 
 procedure TDaemon1.DataModuleStart(Sender: TCustomDaemon; var OK: Boolean);
 begin
-  LogToFile(Format('Daemon %s received start signal, PID:%d', [GetProcessID]));
+  LogToFile(Format('Daemon received start signal, PID:%d', [GetProcessID]));
   // Create a suspended worker thread - see DaemonWorkerThread unit
   FDaemonWorkerThread := TDaemonWorkerThread.Create;
   // Parametrize it

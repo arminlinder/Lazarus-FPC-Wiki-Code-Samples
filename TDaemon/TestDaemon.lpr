@@ -1,5 +1,11 @@
 Program TestDaemon;
 
+// --------------------------------------
+// Testdaemon: main program
+// V1.1 3/2022 arminlinder@arminlinder.de
+// --------------------------------------
+
+
 Uses
 // {$IFDEF UNIX}{$IFDEF UseCThreads}
 //  CThreads,
