@@ -2,7 +2,7 @@ unit DaemonUnit1;
 
 // --------------------------------------
 // Testdaemon: main unit: event handlers
-// V1.1 3/2022 arminlinder@arminlinder.de
+// V1.2 5/2023 arminlinder@arminlinder.de
 // --------------------------------------
 
 {$mode objfpc}{$H+}
